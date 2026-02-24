@@ -2,6 +2,10 @@
 
 Демо-витрина ассистента Аксиом: интерфейс, сценарии взаимодействия и интеграция в учебный кабинет.
 
+## Скриншоты
+![Аксиом — плавающий интерфейс ассистента](./docs/screenshots/assistant-live.png)
+![Аксиом — открытый чат](./docs/screenshots/assistant-chat-open.png)
+
 ## Что показано
 - Плавающий launcher ассистента.
 - Чат-окно ассистента с состояниями.
@@ -20,7 +24,7 @@ npm install
 npm run dev:showcase
 ```
 
-Откроется маршрут: `/teacher/profile`
+Откроется маршрут: `/axiom-demo` (если браузер не открылся автоматически: [http://localhost:5173/axiom-demo](http://localhost:5173/axiom-demo)).
 
 ## Демо-доступ
 - Учитель: `teacher@axiom.demo` / `magic`

@@ -34,6 +34,9 @@ const WorkbookSessionPage = lazy(
 const WorkbookInviteJoinPage = lazy(
   () => import("@/pages/workbook/WorkbookInviteJoinPage")
 );
+const AssistantShowcasePage = lazy(
+  () => import("@/pages/showcase/AssistantShowcasePage")
+);
 
 const routeFallbackElement = (
   <PageLoader minHeight="28vh" title="Загрузка страницы..." />
@@ -161,6 +164,10 @@ export const router = createBrowserRouter([
             {withSuspense(<WorkbookInviteJoinPage />)}
           </RoleProtectedRoute>
         ),
+      },
+      {
+        path: "/axiom-demo",
+        element: withSuspense(<AssistantShowcasePage />),
       },
     ],
   },

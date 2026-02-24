@@ -25,7 +25,7 @@
     "portfolio:export": "node ../portfolio/scripts/export-showcases.mjs",
     "verify": "npm run lint && npm run audit:visual && npm run audit:contracts && npm run audit:contrast && npm run smoke:visual && npm run visual:matrix && npm run visual:diff && npm run build && npm run audit:visual-performance",
     "preview": "vite preview",
-    "dev:showcase": "vite --mode showcase --open /teacher/profile",
+    "dev:showcase": "vite --mode showcase --open /axiom-demo",
     "build:showcase": "vite build --mode showcase"
   },
   "dependencies": {
