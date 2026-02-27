@@ -2,6 +2,7 @@ import { lazy, Suspense, type ReactNode } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { MainLayout } from "@/app/layouts/MainLayout";
 import { RoleProtectedRoute } from "@/app/router/guards/RoleProtectedRoute";
+import { t } from "@/shared/i18n";
 import { PageLoader } from "@/shared/ui/loading";
 
 const Home = lazy(() => import("@/pages/home/Home"));
@@ -34,16 +35,18 @@ const WorkbookSessionPage = lazy(
 const WorkbookInviteJoinPage = lazy(
   () => import("@/pages/workbook/WorkbookInviteJoinPage")
 );
-const AssistantShowcasePage = lazy(
-  () => import("@/pages/showcase/AssistantShowcasePage")
-);
 
-const routeFallbackElement = (
-  <PageLoader minHeight="28vh" title="Загрузка страницы..." />
+const routeSuspenseFallback = (
+  <PageLoader
+    minHeight="28vh"
+    title={t("route.loadingPage")}
+    showRingDelayMs={180}
+    showRingMinVisibleMs={220}
+  />
 );
 
 const withSuspense = (node: ReactNode) => (
-  <Suspense fallback={routeFallbackElement}>{node}</Suspense>
+  <Suspense fallback={routeSuspenseFallback}>{node}</Suspense>
 );
 
 export const router = createBrowserRouter([
@@ -159,15 +162,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/workbook/invite/:token",
-        element: (
-          <RoleProtectedRoute allow={["student", "teacher"]}>
-            {withSuspense(<WorkbookInviteJoinPage />)}
-          </RoleProtectedRoute>
-        ),
-      },
-      {
-        path: "/axiom-demo",
-        element: withSuspense(<AssistantShowcasePage />),
+        element: withSuspense(<WorkbookInviteJoinPage />),
       },
     ],
   },
